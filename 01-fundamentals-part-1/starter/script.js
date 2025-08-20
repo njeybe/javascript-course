@@ -167,7 +167,84 @@
 // const averageAge = (ageJonas + ageSarah) / 2;
 // console.log(ageJonas, ageSarah, averageAge);
 
-console.log("CODING CHALLENGE #1 : BMI Calculator ===");
+// console.log("CODING CHALLENGE #1 : BMI Calculator ===");
+
+// const massMark = 78;
+// const heightMark = 1.69;
+// const massJohn = 92;
+// const heightJohn = 1.95;
+
+// const markBMI = massMark / heightMark ** 2;
+// console.log(markBMI);
+
+// const johnBMI = massJohn / heightJohn ** 2;
+// console.log(johnBMI);
+
+// const markHigherBMI = markBMI > johnBMI
+// console.log(markBMI, johnBMI, markHigherBMI);
+
+// String and Template Literals
+
+const firstName = "Jonas";
+const job = "teacher";
+const birthYear = 1991;
+const year = 2037;
+
+const jonas =
+  "I'm " + firstName + ", a " + (year - birthYear) + " year old " + job + "!";
+console.log(jonas);
+
+// back ticks
+const jonasNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}!`;
+console.log(jonasNew);
+
+
+console.log(`I'm ${2025 - 2005}, years old`);
+console.log(`Math works: ${2 + 3}, equals to five`);
+console.log(`Comparison too: ${5 > 7},`);
+
+console.log(`this is a regular string`);
+
+// Taking decisions: if/else statements
+
+const age = 15;
+
+if(age >= 18){
+    console.log(`Sarah can start driving license`);
+}else{
+    const yearLeft = 18 - age;
+    console.log(`Sarah is too young. Wait another ${yearLeft}, years :)`)
+}
+
+////
+// Truthy and falsy value
+
+console.log(Boolean (0));
+console.log(Boolean(undefined));
+console.log(Boolean("Jonas"));
+console.log(Boolean({}));
+console.log(Boolean(""));
+
+const money = 100;
+
+if(money){
+    console.log(`dont spend it all`);
+}else{
+    console.log(`go get a job`);
+}
+
+let height = 0;
+
+if (height){
+    console.log(`YAY your height is defined as fuck`);
+}else{
+    console.log(`your height is UNDEFINED`)
+}
+
+// better approach
+if(height !== undefined){
+    console.log(`Heigh is defined`);
+}
 
 const massMark = 78;
 const heightMark = 1.69;
@@ -183,3 +260,8 @@ console.log(johnBMI);
 const markHigherBMI = markBMI > johnBMI
 console.log(markBMI, johnBMI, markHigherBMI);
 
+if(markBMI > johnBMI){
+    console.log(`Mark's BMI (${markBMI}) is higher than John's (${johnBMI})!`);
+}else{
+    console.log(`John's BMI (${johnBMI}) is higher than Mark's (${markBMI})!`);
+}
