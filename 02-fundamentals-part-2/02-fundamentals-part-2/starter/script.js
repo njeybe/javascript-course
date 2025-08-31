@@ -763,3 +763,6 @@ heading.addEventListener("dblclick", function(){
   heading.textContent = `Double clicked!`;
   heading.style.backgroundColor = "lightBlue";
 });
+
+// Final project: Interactive Score Tracker
+
