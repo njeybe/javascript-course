@@ -299,21 +299,21 @@
 // console.log(`Lowest: ${lowest}`);
 // console.log(`Passing Students: ${passing} out of ${grades.length}`);
 
-console.log(`=== OBJECTS AND DATA STRUCTURES ===`);
+// console.log(`=== OBJECTS AND DATA STRUCTURES ===`);
 
-// The Array Problem
+// // The Array Problem
 
-const jonasArray = [
-  "Jonas",
-  "Schmedtmann",
-  2037 - 1991,
-  "teacher",
-  ["Michael", "Peter", "Steven"]
-];
+// const jonasArray = [
+//   "Jonas",
+//   "Schmedtmann",
+//   2037 - 1991,
+//   "teacher",
+//   ["Michael", "Peter", "Steven"]
+// ];
 
-console.log(jonasArray[0]);
-console.log(jonasArray[1]);
-console.log(jonasArray[2]);
+// console.log(jonasArray[0]);
+// console.log(jonasArray[1]);
+// console.log(jonasArray[2]);
 
 // Basic Object Creation
 
@@ -361,59 +361,59 @@ console.log(jonasArray[2]);
 
 // Exercise 1: Personal Object
 
-const book = {
-  title: `Naruto Volume 1`,
-  author: `Masashi Kishimoto`,
-  pages: 192,
-  isRead: false
-};
+// const book = {
+//   title: `Naruto Volume 1`,
+//   author: `Masashi Kishimoto`,
+//   pages: 192,
+//   isRead: false
+// };
 
-const playlist = {
-  name: `zxc`,
-  creator: `njeybe`,
-  songs: [`Heaven by Bryan Adams`, `Wherever You Will Go by The Calling`, 
-    `All Out of Love by Air Supply`
-  ]
-};
+// const playlist = {
+//   name: `zxc`,
+//   creator: `njeybe`,
+//   songs: [`Heaven by Bryan Adams`, `Wherever You Will Go by The Calling`, 
+//     `All Out of Love by Air Supply`
+//   ]
+// };
 
-console.log(book.title);
-console.log(playlist[`creator`]);
+// console.log(book.title);
+// console.log(playlist[`creator`]);
 
-// Adding new Properties
-book.published = 2003;
-playlist.estimatedtime = `3h 21m`;
+// // Adding new Properties
+// book.published = 2003;
+// playlist.estimatedtime = `3h 21m`;
 
-// Modifying existing properties
-book[`pages`] = 187;
-playlist.songs[1] = `Bed of Roses by Bon Jovi`;
+// // Modifying existing properties
+// book[`pages`] = 187;
+// playlist.songs[1] = `Bed of Roses by Bon Jovi`;
 
-console.log(book);
-console.log(playlist);
+// console.log(book);
+// console.log(playlist);
 
 
 ///////////////////////////////////////////////////
 // Objects vs Arrays: When to Use What
 
-// Use Array for:
-// Ordered, indexed data - think lists
-const listOfYears = [1991, 1984, 2008, 2020];
-const shoppingList = ["apples", "bananas", "milk", "bread"];
-const testScores = [85, 92, 78, 96];
+// // Use Array for:
+// // Ordered, indexed data - think lists
+// const listOfYears = [1991, 1984, 2008, 2020];
+// const shoppingList = ["apples", "bananas", "milk", "bread"];
+// const testScores = [85, 92, 78, 96];
 
-// Use Objects for:
-// Named, descriptive data - think entities
-const person = {
-  name: "Jonas",
-  age: 46,
-  occupation: "teacher",
-};
+// // Use Objects for:
+// // Named, descriptive data - think entities
+// const person = {
+//   name: "Jonas",
+//   age: 46,
+//   occupation: "teacher",
+// };
 
-const car = {
-  brand: "Toyota",
-  model: "Camry",
-  year: 2020,
-  color: "blue",
-};
+// const car = {
+//   brand: "Toyota",
+//   model: "Camry",
+//   year: 2020,
+//   color: "blue",
+// };
 
 //////////////////////////////////////////////////////////
 // Object Methods
@@ -479,108 +479,287 @@ const car = {
 /////////////////////////////////////////////////
 // Exercise 2: Calculator Object
 
-const calculator = {
-  num1: 10,
-  num2: 5,
-  operator: "+",
+// const calculator = {
+//   num1: 10,
+//   num2: 5,
+//   operator: "+",
 
-  add: function(){
-    return this.num1 + this.num2
-  },
+//   add: function(){
+//     return this.num1 + this.num2
+//   },
 
-  subtract: function(){
-    return this.num1 - this.num2;
-  },
+//   subtract: function(){
+//     return this.num1 - this.num2;
+//   },
 
-  multiply: function(){
-    return this.num1 * this.num2;
-  },
+//   multiply: function(){
+//     return this.num1 * this.num2;
+//   },
 
-  divide: function(){
-    return this.num1 / this.num2;
-  },
+//   divide: function(){
+//     return this.num1 / this.num2;
+//   },
 
-  calculate: function(){
-    if (this.operator === '+'){
-      return this.add()
-    }else if (this.operator === '-'){
-      return this.subtract();
-    }else if (this.operator === '*'){
-      return this.multiply();
-    }else if(this.operator === '/'){
-      return this.divide();
-    }else{
-      return `Please input an operator`;
-    }
-  },
+//   calculate: function(){
+//     if (this.operator === '+'){
+//       return this.add()
+//     }else if (this.operator === '-'){
+//       return this.subtract();
+//     }else if (this.operator === '*'){
+//       return this.multiply();
+//     }else if(this.operator === '/'){
+//       return this.divide();
+//     }else{
+//       return `Please input an operator`;
+//     }
+//   },
 
-  getResult: function(){
-    return `${this.num1} ${this.operator} ${this.num2} = ${this.calculate()}`;
+//   getResult: function(){
+//     return `${this.num1} ${this.operator} ${this.num2} = ${this.calculate()}`;
+//   }
+// }
+
+// console.log(calculator.calculate());
+// console.log(calculator.getResult());
+
+// ////////////////////////////////////////////////////////////
+
+// // Coding Challenge 3: User Profile System
+
+// const user = {
+//   firstname: `Joseph Brian`,
+//   lastname: `Natividad`,
+//   birthYear: 2005,
+//   location: `Teresa, Rizal`,
+//   interests: [` basketball `, ` coding `, ` playing pc games `],
+//   friends: [
+//     {name: `Jed`, status: `active`},
+//     {name: `Cymon`, status: `inactive`},
+//     {name: `Vic`, status: `active`},
+//     {name: `JP`, status: `inactive`},
+//     {name: `Justin`, status: `active`},
+//     {name: `Lebron`, status: `inactive`}
+// ],
+
+//   isActive: true,
+
+//   calcAge: function(){
+//     const currentYear = new Date().getFullYear();
+//     this.age = currentYear - this.birthYear;
+//     return this.age;
+//   },
+
+//   addFriend: function(name, status = `active`){
+//     const newFriend = {
+//       name: name, status: status
+//     };
+
+//     this.friends.push(newFriend);
+
+//     return this.friends.length;
+//   },
+
+//   getActiveFriends: function(){
+//     return this.friends.filter(`active`);
+//   },
+
+//   toggleStatus: function (){
+//     this.isActive = !this.isActive;
+//     return this.isActive;
+//   },
+
+//   getSummary: function(){
+//     return `
+//     Name: ${this.firstname} ${this.lastname}
+//     Age: ${this.calcAge()}
+//     Location: ${this.location}
+//     Status (Active/Inactive): ${this.isActive}
+//     Friend Counts: ${this.friends.length}
+//     Interests: ${this.interests}`
+//   }
+// }
+
+// console.log(user.getSummary());
+// user.addFriend(`JD`, `active`);
+// user.toggleStatus();
+// console.log(`After updates:`);
+// console.log(user.getSummary());
+
+////////////////////////////////////////////////////////////////////////////
+
+console.log(`=== DOM MANIPULATION AND INTERACTIVITY ===`);
+
+// querySelector (different selector types)
+// const message = document.querySelector(".message");
+// const button = document.querySelector("#btn");
+// const heading = document.querySelector("h1");
+// const input = document.querySelector(".guess");
+
+// console.log(message);
+// console.log(button);
+// console.log(heading);
+
+// getElementById (only works with IDs)
+// const buttonById = document.getElementById("btn");
+
+// console.log(buttonById);
+// console.log(buttonById === button);
+
+// const allParagraphs = document.querySelectorAll("p");
+// console.log(allParagraphs);
+// console.log(allParagraphs[0]);
+// console.log(allParagraphs,length);
+
+
+
+// // Exercise 1: Element Selection Practice
+
+// const guessInput = document.querySelector(".guess");
+// const buttonQuery = document.querySelector("#btn");
+// const buttonById = document.getElementById("btn");
+// const allSpans = document.querySelectorAll("span");
+// const firstSpan = document.querySelector("span");
+
+// console.log(guessInput);
+// console.log(buttonQuery);
+// console.log(buttonById);
+// console.log(allSpans);
+// console.log(firstSpan.textContent);
+
+// // Modifying Element Content
+
+// const message = document.querySelector(".message");
+
+// console.log(message.textContent);
+// message.textContent = "Hello from JavaScript"; // plain text only
+
+// message.innerHTML = "<strong>Bold text from JS!</strong>"; // html content
+
+// console.log(message.innerText); // visible text only, ignored respects CSS
+
+// // Working with input elements
+
+// const input = document.querySelector(".guess");
+
+// console.log(input.value);
+// input.value = "Default Text";
+// input.placeholder = "Type here";
+
+// Dynamic Style Changes 
+
+// const heading = document.querySelector("h1");
+
+// heading.style.color = "red"
+// heading.style.backgroundColor = "yellow"
+// heading.style.fontSize = "3rem";
+// heading.style.padding = "20px";
+// heading.style.borderRadius = "10px";
+
+// Exercise 2: Content and Style
+
+// const heading = document.querySelector("h1");
+// const button = document.querySelector("#btn");
+// const input = document.querySelector(".guess");
+// const message = document.querySelector(".message");
+// const scoreValue = document.querySelector(".score-value");
+
+// heading.textContent = "Joseph Brian Natividad";
+
+// button.style.backgroundColor = "blue";
+// button.style.color = "white";
+// button.style.padding = "10px 20px";
+// button.style.border = "none"
+// button.style.borderRadius = "8px";
+
+// input.placeholder = "Type something cool...";
+
+// message.innerHTML = "Hello, I am <strong>happy</strong> to be here. :)";
+
+// scoreValue.style.fontSize = "2rem";
+// scoreValue.style.color = "green";
+// scoreValue.style.fontWeight = "bold";
+
+
+// // Event Listeners and User Interaction
+// // Click events
+
+// button.addEventListener("click", function (){
+//   console.log(`Button was clicked!`);
+//   message.textContent = `You clicked the button!`;
+//   message.style.color = `green`;
+// });
+
+// // Click Counter Example
+
+// let clicked = 0;
+
+// button.addEventListener("click", function (){
+//   clicked++;
+//   message.textContent = `You have clicked ${clicked} times`;
+//   button.style.backgroundColor = `hsl (${clicked * 30}, 70%, 50%)`;
+// });
+
+// // Input Events - Real-time Typing Response
+
+// input.addEventListener("input", function(){
+//   const userText = input.value;
+//   message.textContent = `You typed: ${userText}`;
+//   message.style.fontSize = `${userText.length + 10}px`
+// });
+
+// // Keyboard events - responding to a specific keys
+
+// input.addEventListener("keydown",  function (event){
+//   console.log(`Key pressed: ${event.key}`);
+
+//   if (event.key === "Enter"){
+//     message.textContent = `You pressed Enter! Text was: ${input.value}`;
+//     input.value = "";
+//   }
+// });
+
+// // Global keyboard events
+
+// document.addEventListener("keydown", function(event){
+//   if(event.key === "Escape"){
+//     message.textContent = `Reset with Escape`;
+//     input.value = "";
+//     clicked = 0;
+//     button.textContent = "Click me!";
+//   }
+// });
+
+// Exercise 3: Event listeners practice
+
+const heading = document.querySelector("h1");
+const input = document.querySelector(".guess");
+const button = document.querySelector("#btn");
+const message = document.querySelector(".message");
+
+heading.addEventListener("click", function (){
+  heading.style.color = "blue";
+});
+
+input.addEventListener("input", function(){
+  const count = input.value.length;
+  message.textContent = `Character counts: ${count}`;
+});
+
+document.addEventListener("keydown", function(event){
+  if(event.key === " "){
+    message.textContent = `Spacebar Pressed`;
   }
-}
+});
 
-console.log(calculator.calculate());
-console.log(calculator.getResult());
+button.addEventListener("mouseover", function(){
+  button.textContent = `Hovering button`;
+})
 
-////////////////////////////////////////////////////////////
+button.addEventListener("mouseout", function(){
+  button.textContent = `Click me!`;
+});
 
-// Coding Challenge 3: User Profile System
-
-const user = {
-  firstname: `Joseph Brian`,
-  lastname: `Natividad`,
-  birthYear: 2005,
-  location: `Teresa, Rizal`,
-  interests: [` basketball `, ` coding `, ` playing pc games `],
-  friends: [
-    {name: `Jed`, status: `active`},
-    {name: `Cymon`, status: `inactive`},
-    {name: `Vic`, status: `active`},
-    {name: `JP`, status: `inactive`},
-    {name: `Justin`, status: `active`},
-    {name: `Lebron`, status: `inactive`}
-],
-
-  isActive: true,
-
-  calcAge: function(){
-    const currentYear = new Date().getFullYear();
-    this.age = currentYear - this.birthYear;
-    return this.age;
-  },
-
-  addFriend: function(name, status = `active`){
-    const newFriend = {
-      name: name, status: status
-    };
-
-    this.friends.push(newFriend);
-
-    return this.friends.length;
-  },
-
-  getActiveFriends: function(){
-    return this.friends.filter(`inactive`);
-  },
-
-  toggleStatus: function (){
-    this.isActive = !this.isActive;
-    return this.isActive;
-  },
-
-  getSummary: function(){
-    return `
-    Name: ${this.firstname} ${this.lastname}
-    Age: ${this.calcAge()}
-    Location: ${this.location}
-    Status (Active/Inactive): ${this.isActive}
-    Friend Counts: ${this.friends.length}
-    Interests: ${this.interests}`
-  }
-}
-
-console.log(user.getSummary());
-user.addFriend(`JD`, `active`);
-user.toggleStatus();
-console.log(`After updates:`);
-console.log(user.getSummary());
+heading.addEventListener("dblclick", function(){
+  heading.textContent = `Double clicked!`;
+  heading.style.backgroundColor = "lightBlue";
+});
