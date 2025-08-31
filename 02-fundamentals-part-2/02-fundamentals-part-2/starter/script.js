@@ -731,38 +731,38 @@ console.log(`=== DOM MANIPULATION AND INTERACTIVITY ===`);
 
 // Exercise 3: Event listeners practice
 
-const heading = document.querySelector("h1");
-const input = document.querySelector(".guess");
-const button = document.querySelector("#btn");
-const message = document.querySelector(".message");
+// const heading = document.querySelector("h1");
+// const input = document.querySelector(".guess");
+// const button = document.querySelector("#btn");
+// const message = document.querySelector(".message");
 
-heading.addEventListener("click", function (){
-  heading.style.color = "blue";
-});
+// heading.addEventListener("click", function (){
+//   heading.style.color = "blue";
+// });
 
-input.addEventListener("input", function(){
-  const count = input.value.length;
-  message.textContent = `Character counts: ${count}`;
-});
+// input.addEventListener("input", function(){
+//   const count = input.value.length;
+//   message.textContent = `Character counts: ${count}`;
+// });
 
-document.addEventListener("keydown", function(event){
-  if(event.key === " "){
-    message.textContent = `Spacebar Pressed`;
-  }
-});
+// document.addEventListener("keydown", function(event){
+//   if(event.key === " "){
+//     message.textContent = `Spacebar Pressed`;
+//   }
+// });
 
-button.addEventListener("mouseover", function(){
-  button.textContent = `Hovering button`;
-})
+// button.addEventListener("mouseover", function(){
+//   button.textContent = `Hovering button`;
+// })
 
-button.addEventListener("mouseout", function(){
-  button.textContent = `Click me!`;
-});
+// button.addEventListener("mouseout", function(){
+//   button.textContent = `Click me!`;
+// });
 
-heading.addEventListener("dblclick", function(){
-  heading.textContent = `Double clicked!`;
-  heading.style.backgroundColor = "lightBlue";
-});
+// heading.addEventListener("dblclick", function(){
+//   heading.textContent = `Double clicked!`;
+//   heading.style.backgroundColor = "lightBlue";
+// });
 
 // Final project: Interactive Score Tracker
 
