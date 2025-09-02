@@ -731,114 +731,96 @@ console.log(`=== DOM MANIPULATION AND INTERACTIVITY ===`);
 
 // Exercise 3: Event listeners practice
 
-const heading = document.querySelector("h1");
-const input = document.querySelector(".guess");
-const button = document.querySelector("#btn");
-const message = document.querySelector(".message");
-
-heading.addEventListener("click", function (){
-  heading.style.color = "blue";
-});
-
-input.addEventListener("input", function(){
-  const count = input.value.length;
-  message.textContent = `Character counts: ${count}`;
-});
-
-document.addEventListener("keydown", function(event){
-  if(event.key === " "){
-    message.textContent = `Spacebar Pressed`;
-  }
-});
-
-button.addEventListener("mouseover", function(){
-  button.textContent = `Hovering button`;
-})
-
-button.addEventListener("mouseout", function(){
-  button.textContent = `Click me!`;
-});
-
-heading.addEventListener("dblclick", function(){
-  heading.textContent = `Double clicked!`;
-  heading.style.backgroundColor = "lightBlue";
-});
-
-// Final project: Interactive Score Tracker
-
 const gameState = {
-    scores: [0,0],
+    score: [0,0],
     targetScore: 5,
-    isOver: false,
+    isOver:false,
 
-    addPoint: function(playerIndex){
-        if(this.isOver){
+    addPoint: function (playerIndex){
+        if (this.isOver)
             return;
-        }
+
+        this.score[playerIndex] += 1;
         updateDisplay();
 
-        if(this.scores[playerIndex] = this.scores[playerIndex] + 1);
-
-        updateDisplay();
-
-        if (this.playerIndex >= this.targetScore){
-            this.showWinner(playerIndex)
+        if (this.score[playerIndex] >= this.targetScore){
+            this.showWinner(playerIndex);
         }
+        updateDisplay();
     },
 
-    showWinner: function (playerIndex){
-       this.isOver = true;
+    showWinner: function (playerIndex) {
+        this.isOver = true
 
-       const winnerMsg = document.querySelector(`.winner`);
-       const winnerName = document.querySelector(`.winner-name`);
-       const playerWinner = document.querySelector(`.pleyer- ${playerIndex + 1}`);
-       const status = document.querySelector(`.status`);
+        const winnerMsg = document.querySelector(".winner");
+        const winnerName = document.querySelector(".winner-name");
+        const playerWinner = document.querySelector(`.player-${playerIndex + 1}`);
+        const status = document.querySelector(".status");
 
-       winnerMsg.classList.remove(`hidden`);
-       winnerName.textContent = `Player ${playerIndex + 1}`;
-       playerWinner.classList.add(`highlight`);
-       status.textContent = `Game Over!`
+        winnerMsg.classList.remove("hidden");
+        winnerName.textContent = `Player ${playerIndex + 1}`;
+        playerWinner.classList.add("highlight");
+        status.textContent = `Game Over!`;
     },
 
-    reset: function(){
-        this.scores = [0,0],
-        this.targetScore = 5,
+    reset: function (){
+        this.score =[0,0],
         this.isOver = false,
 
         document.querySelector(`#score-1`).textContent = `0`;
         document.querySelector(`#score-2`).textContent = `0`;
-        document.querySelector(`.selector`).classList.add(`hidden`);
-        const status = document.querySelector(`.status`);
-        const players = document.querySelectorAll(`.player`);
+        document.querySelector(`.winner`).classList.add("hidden")
 
-        status.textContent = `First to <span class="target">${this.targetScore}</span> wins!`;
-        
-        for (let i = 0; i < playerIndex; i++){
-            players[i].classList.remove(`hidden`);
-        }
+        const status = document.querySelector(".status");
+        status.innerHTML = `First to <span class="target">${this.targetScore}</span> wins!`;
+
+        document.querySelectorAll(".player").forEach(function (player){
+            player.classList.remove("highlight");
+        });
     }
-};
+}
 
-const updateDisplay = function (){
-    document.querySelector(`.player-1`).textContent = this.scores;
-    document.querySelector(`.player-2`).textContent = this.scores;
-};
+function updateDisplay(){
+    document.querySelector("#score-1").textContent = gameState.score[0];
+    document.querySelector("#score-2").textContent = gameState.score[1];
+}
 
-const playerButton = function (){
-  const buttons =  document.querySelectorAll(`btn-add`);
-  for (let i = 0; i < playerIndex; i++){
-    buttons[i].addEventListener("click", function (){
-        const playerIndex = parseInt(buttons[i].dataset.player, 10)-1;
-        gameState.addPoint(playerIndex);
+function setUpButton (){
+    document.querySelectorAll(".btn-add").forEach(function (button){
+        button.addEventListener("click", function (){
+            let playerIndex;
+            if (button.dataset.player === "1"){
+                playerIndex = 0;
+            }else if (button.dataset.player === "2" ) {
+                playerIndex = 1;
+            }else{
+                return;
+            }
+            gameState.addPoint(playerIndex);
+        });
     });
-  }
-};
+}
 
-const resetButton = function () {
-    const resetBtn = document.querySelector(`#btn-reset`);
-    resetBtn.addEventListener("click", function (){
+function setResetButton (){
+    document.querySelector("#btn-reset").addEventListener("click", function (){
+        gameState.reset();
+    });
+}
+
+function setWinningScoreInput (){
+    const input = document.querySelector("#winning-score");
+    input.addEventListener("change", function (event) {
+        gameState.targetScore = parseInt(event.target.value, 10) || 5;
         gameState.reset();
     });
 }
 
 
+function initializeGame(){
+    updateDisplay();
+    setUpButton();
+    setResetButton();
+    setWinningScoreInput();
+}
+
+initializeGame();
