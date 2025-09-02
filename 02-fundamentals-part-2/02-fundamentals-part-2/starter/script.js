@@ -810,10 +810,35 @@ function setResetButton (){
 function setWinningScoreInput (){
     const input = document.querySelector("#winning-score");
     input.addEventListener("change", function (event) {
-        gameState.targetScore = parseInt(event.target.value, 10) || 5;
+        let value = parseInt(event.target.value, 10);
+
+        if(value > 20){
+            value = 20;
+        }else if (value < 1 || NaN(value)){
+            value = 1;
+        }
+        event.target.value = value;
+
+        gameState.targetScore = value;
         gameState.reset();
     });
 }
+
+document.addEventListener("keydown", function (event){
+
+    if (this.activeElement.tagName === "INPUT" || this.activeElement.tagName === "TEXTAREA"){
+        return;
+    }
+    if (event.key === "1"){
+        gameState.addPoint(0);
+    }else if(event.key === "2"){
+        gameState.addPoint(1);
+    }else if (event.key === "R" || event.key === "r"){
+        gameState.reset();
+    }else{
+        return;
+    }
+});
 
 
 function initializeGame(){
