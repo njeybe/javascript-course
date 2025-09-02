@@ -840,7 +840,6 @@ document.addEventListener("keydown", function (event){
     }
 });
 
-
 function initializeGame(){
     updateDisplay();
     setUpButton();
