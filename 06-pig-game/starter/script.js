@@ -10,7 +10,7 @@ const score0El = document.querySelector(`#score--0`);
 const score1El = document.querySelector(`#score--1`);
 const current0El = document.querySelector(`#current--0`);
 const current1EL = document.querySelector(`#current--1`);
-const diceEL = document.querySelector(`.dice`);
+const diceEl = document.querySelector(`.dice`);
 const btnRollEl = document.querySelector(`.btn--roll`);
 const btnHoldEl = document.querySelector(`.btn--hold`);
 const btnNewEl = document.querySelector(`.btn--new`);
@@ -24,7 +24,7 @@ const init = () => {
   score0El.textContent = 0;
   score1El.textContent = 0;
   current0El.textContent = 0;
-  diceEL.classList.add(`hidden`);
+  diceEl.classList.add(`hidden`);
   player0El.classList.remove(`player--winner`);
   player1El.classList.remove(`player--winner`);
   player0El.classList.add('player--active');
@@ -33,7 +33,7 @@ const init = () => {
 
 init();
 
-btnRollEl.addEventListener('click', function () {
+btnRollEl.addEventListener('click', () => {
   if (playing) {
     const dice = Math.trunc(Math.random() * 6) + 1;
     diceEl.classList.remove('hidden');
@@ -44,8 +44,28 @@ btnRollEl.addEventListener('click', function () {
       document.getElementById(`current--${activePlayer}`).textContent =
         currentScore;
     } else {
-      currentScore = 0;
-      document.getElementById(`current--${activePlayer}`).textContent = 0;
+      switchPlayer();
     }
   }
 });
+
+const switchPlayer = () => {
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  currentScore = 0;
+
+  activePlayer = activePlayer === 0 ? 1 : 0;
+
+  player0El.classList.toggle(`player--active`);
+  player1El.classList.toggle(`player--active`);
+};
+
+btnHoldEl.addEventListener('click', () => {
+  if (playing && currentScore > 0) {
+    scores[activePlayer] += currentScore;
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[activePlayer];
+    } else {
+      switchPlayer();
+    }
+  }
+);
