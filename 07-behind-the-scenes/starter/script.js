@@ -128,23 +128,91 @@ console.log('=== `this` KEYWORD & ARROW FUNCTIONS ===');
 
 ////////// The `arguments` Keyword & Advanced Scenarios
 
-const functionTypes = {
-  regularFunction: function () {
-    console.log(`Arguments length: ${arguments.length}`);
-    console.log(`First argument: ${arguments[0]}`);
-  },
+// const functionTypes = {
+//   regularFunction: function () {
+//     console.log(`Arguments length: ${arguments.length}`);
+//     console.log(`First argument: ${arguments[0]}`);
+//   },
 
-  arrowFunction: () => {
-    console.log(arguments);
-    console.log(`Arrow function called`);
-  },
+//   arrowFunction: () => {
+//     console.log(arguments);
+//     console.log(`Arrow function called`);
+//   },
 
-  modernFunction: (...args) => {
-    console.log(`Args length ${args.length}`);
-    console.log(`First arg: ${args[0]}`);
-  },
+//   modernFunction: (...args) => {
+//     console.log(`Args length ${args.length}`);
+//     console.log(`First arg: ${args[0]}`);
+//   },
+// };
+
+// functionTypes.regularFunction('hello', 'nga');
+// // functionTypes.arrowFunction('test');
+// functionTypes.modernFunction('modern', 'approach')
+
+
+
+console.log('=== PRIMITIVES vs OBJECTS, COPYING & STRICT MODE ===');
+// // primitives in stack
+// // primitive are copied by value
+// let age = 30;
+// // independent copy
+// let oldAge = age;
+
+// age = 31;
+// console.log(`age : ${age}`);
+// console.log(`old age: ${oldAge}`);
+
+// // heap
+// // objects are copied by reference or shared data
+// const me = {
+//   name: 'JB',
+//   age: '20',
+// };
+
+// const friend = me;
+
+// friend.name = 'John Doe';
+// friend.age = 19;
+
+// console.log(me);
+// console.log(friend);
+
+// Shallow vs Deep Copying
+
+// Shallow Copy
+
+// though we can name, age are easy to be independent but nested objects, variables, properties
+const original = {
+  name: 'Alice',
+  hobbies: ['reading', 'coding'],
 };
 
-functionTypes.regularFunction('hello', 'nga');
-// functionTypes.arrowFunction('test');
-functionTypes.modernFunction('modern', 'approach')
+const shallowCopy = { ...original };
+
+shallowCopy.name = 'Bob';
+console.log('original name: ', original);
+console.log('copy name: ', shallowCopy);
+
+shallowCopy.hobbies.push('gaming');
+
+console.log(original.hobbies);
+console.log(shallowCopy.hobbies);
+
+// Deep Copy
+
+const deepOriginal = {
+  name: 'iya',
+  age: 20,
+  // nested objects
+  address: { city: 'pasig', country: 'ph' },
+  // nested array
+  hobbies: ['drawing', 'reading'],
+};
+
+const deepCopy = structuredClone(deepOriginal);
+deepCopy.address.city = 'Manila';
+deepCopy.hobbies.push('cooking');
+deepCopy.name = 'Sophia';
+
+console.log(deepOriginal);
+console.log(deepCopy);
